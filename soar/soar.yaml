@@ -1,30 +1,12 @@
 # 线上环境配置
-online-dsn:
+
+# 测试环境配置
+test-dsn:
   user: "root"
   password: 'jw@365039'
   net: tcp
   addr: 175.178.27.35:3306
   schema: "goblog"
-  charset: utf8
-  collation: utf8_general_ci
-  loc: UTC
-  tls: ""
-  server-public-key: ""
-  maxallowedpacket: 4194304
-  params: {}
-  timeout: 0
-  read-timeout: 0
-  write-timeout: 0
-  allow-native-passwords: true
-  allow-old-passwords: false
-  disable: false
-# 测试环境配置
-test-dsn:
-  user: "root"
-  password: 'root'
-  net: tcp
-  addr: 127.0.0.1:3306
-  schema: "demo"
   charset: utf8
   collation: utf8_general_ci
   loc: UTC
@@ -49,12 +31,12 @@ sampling-statistic-target: 100
 sampling: false
 sampling-condition: ""
 profiling: true
-trace: true
+trace: false
 explain: true
 delimiter: ;
 # 日志级别，[0:Emergency, 1:Alert, 2:Critical, 3:Error, 4:Warning, 5:Notice, 6:Informational, 7:Debug]
 log-level: 7
-log-output: C:\dev\soar\log\soar.log
+log-output: E:\soar\soar.log
 # 优化建议输出格式
 report-type: html
 report-css: ""
@@ -74,10 +56,10 @@ rewrite-rules:
 - insertcolumns
 - distinctstar
 blacklist: ""
-max-join-table-count: 5
-max-group-by-cols-count: 5
-max-distinct-count: 5
-max-index-cols-count: 5
+max-join-table-count: 1
+max-group-by-cols-count: 2
+max-distinct-count: 2
+max-index-cols-count: 1
 max-text-cols-count: 2
 max-total-rows: 9999999
 max-query-cost: 9999
@@ -92,8 +74,8 @@ allow-charsets:
 allow-collates: []
 allow-engines:
 - innodb
-max-index-count: 10
-max-column-count: 40
+max-index-count: 2
+max-column-count: 5
 max-value-count: 100
 index-prefix: idx_
 unique-key-prefix: uk_
@@ -102,11 +84,13 @@ max-varchar-length: 1024
 column-not-allow-type:
 - boolean
 min-cardinality: 0
+explain: true
 explain-sql-report-type: pretty
 explain-type: extended
 explain-format: traditional
 explain-warn-select-type:
-- ""
+- ALL
+- SIMPLE
 explain-warn-access-type:
 - ALL
 explain-max-keys: 3

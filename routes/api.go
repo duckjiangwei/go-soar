@@ -14,8 +14,8 @@ func RegisterAPIRoutes(r *gin.Engine) {
 	v1 := r.Group("/v1")
 	{
 		/* ------------------ 用户 ------------------ */
-		usersGroup := v1.Group("/users")
-		uc := new(controllers.UsersController)
-		usersGroup.GET("", uc.Index)
+		soarGroup := v1.Group("/soar")
+		s := new(controllers.SoarController)
+		soarGroup.GET("", s.Index)
 	}
 }

@@ -2,8 +2,8 @@ package bootstrap
 
 import (
 	"fmt"
-	"hk591_go/pkg/config"
-	"hk591_go/pkg/redis"
+	"go_web/pkg/config"
+	"go_web/pkg/redis"
 )
 
 // SetupRedis 初始化 Redis

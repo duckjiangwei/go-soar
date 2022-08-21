@@ -3,8 +3,8 @@ package paginator
 
 import (
 	"fmt"
-	"hk591_go/pkg/config"
-	"hk591_go/pkg/logger"
+	"go_web/pkg/config"
+	"go_web/pkg/logger"
 	"math"
 	"strings"
 

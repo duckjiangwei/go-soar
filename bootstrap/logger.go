@@ -1,8 +1,8 @@
 package bootstrap
 
 import (
-	"hk591_go/pkg/config"
-	"hk591_go/pkg/logger"
+	"go_web/pkg/config"
+	"go_web/pkg/logger"
 )
 
 // SetupLogger 初始化 Logger

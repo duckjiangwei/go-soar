@@ -3,8 +3,8 @@ package middlewares
 
 import (
 	"bytes"
-	"hk591_go/pkg/helpers"
-	"hk591_go/pkg/logger"
+	"go_web/pkg/helpers"
+	"go_web/pkg/logger"
 	"io/ioutil"
 	"time"
 

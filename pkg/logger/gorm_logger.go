@@ -3,7 +3,7 @@ package logger
 import (
 	"context"
 	"errors"
-	"hk591_go/pkg/helpers"
+	"go_web/pkg/helpers"
 	"path/filepath"
 	"runtime"
 	"strings"

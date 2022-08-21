@@ -3,7 +3,7 @@ package redis
 
 import (
 	"context"
-	"hk591_go/pkg/logger"
+	"go_web/pkg/logger"
 	"sync"
 	"time"
 

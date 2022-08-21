@@ -1,6 +1,6 @@
 package config
 
-import "hk591_go/pkg/config"
+import "go_web/pkg/config"
 
 func init() {
 	config.Add("paging", func() map[string]interface{} {

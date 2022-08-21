@@ -2,7 +2,7 @@
 package routes
 
 import (
-	controllers "hk591_go/app/http/controllers/api/v1"
+	controllers "go_web/app/http/controllers/api/v1"
 
 	"github.com/gin-gonic/gin"
 )

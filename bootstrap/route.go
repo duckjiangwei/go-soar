@@ -2,8 +2,8 @@
 package bootstrap
 
 import (
-	"hk591_go/app/http/middlewares"
-	"hk591_go/routes"
+	"go_web/app/http/middlewares"
+	"go_web/routes"
 	"net/http"
 	"strings"
 

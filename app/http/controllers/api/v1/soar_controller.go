@@ -1,7 +1,7 @@
 package v1
 
 import (
-	"hk591_go/pkg/response"
+	"go_web/pkg/response"
 
 	"github.com/gin-gonic/gin"
 )

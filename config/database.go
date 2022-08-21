@@ -1,7 +1,7 @@
 package config
 
 import (
-	"hk591_go/pkg/config"
+	"go_web/pkg/config"
 )
 
 func init() {

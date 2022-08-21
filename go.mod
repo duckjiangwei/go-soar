@@ -1,4 +1,4 @@
-module hk591_go
+module go_web
 
 go 1.17
 

@@ -1,7 +1,7 @@
 package middlewares
 
 import (
-	"hk591_go/pkg/logger"
+	"go_web/pkg/logger"
 	"net"
 	"net/http"
 	"net/http/httputil"

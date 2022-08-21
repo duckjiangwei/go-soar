@@ -2,7 +2,7 @@
 package requests
 
 import (
-	"hk591_go/pkg/response"
+	"go_web/pkg/response"
 
 	"github.com/gin-gonic/gin"
 	"github.com/thedevsaddam/govalidator"

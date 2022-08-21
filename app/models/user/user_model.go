@@ -2,7 +2,7 @@
 package user
 
 import (
-	"hk591_go/app/models"
+	"go_web/app/models"
 )
 
 // User 用户模型

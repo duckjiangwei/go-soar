@@ -4,7 +4,7 @@ package logger
 import (
 	"encoding/json"
 	"fmt"
-	"hk591_go/pkg/app"
+	"go_web/pkg/app"
 	"os"
 	"strings"
 	"time"

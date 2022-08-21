@@ -2,7 +2,7 @@
 package app
 
 import (
-	"hk591_go/pkg/config"
+	"go_web/pkg/config"
 )
 
 func IsLocal() bool {

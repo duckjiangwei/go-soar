@@ -2,7 +2,7 @@
 package response
 
 import (
-	"hk591_go/pkg/logger"
+	"go_web/pkg/logger"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

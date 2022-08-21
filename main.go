@@ -3,9 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"hk591_go/bootstrap"
-	btsConfig "hk591_go/config"
-	"hk591_go/pkg/config"
+	"go_web/bootstrap"
+	btsConfig "go_web/config"
+	"go_web/pkg/config"
 
 	"github.com/gin-gonic/gin"
 )

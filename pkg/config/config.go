@@ -2,7 +2,7 @@
 package config
 
 import (
-	"hk591_go/pkg/helpers"
+	"go_web/pkg/helpers"
 	"os"
 
 	"github.com/spf13/cast"

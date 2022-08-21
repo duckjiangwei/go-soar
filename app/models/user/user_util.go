@@ -1,9 +1,9 @@
 package user
 
 import (
-	"hk591_go/pkg/app"
-	"hk591_go/pkg/database"
-	"hk591_go/pkg/paginator"
+	"go_web/pkg/app"
+	"go_web/pkg/database"
+	"go_web/pkg/paginator"
 
 	"github.com/gin-gonic/gin"
 )

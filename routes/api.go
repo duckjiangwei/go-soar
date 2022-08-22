@@ -13,7 +13,6 @@ func RegisterAPIRoutes(r *gin.Engine) {
 	//v1 的路由组
 	v1 := r.Group("/v1")
 	{
-		/* ------------------ 用户 ------------------ */
 		soarGroup := v1.Group("/soar")
 		s := new(controllers.SoarController)
 		soarGroup.GET("", s.Index)

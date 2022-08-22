@@ -10,6 +10,8 @@ import (
 
 func SetupFile(router *gin.Engine) {
 	rootPath, _ := os.Getwd()
+	//待分析sql
+	router.Static("/soar-sql", rootPath+"/"+cast.ToString(config.Env("SOAR_SQL")))
 	//分析结果
 	router.Static("/soar-result", rootPath+"/"+cast.ToString(config.Env("SOAR_RESULT")))
 }

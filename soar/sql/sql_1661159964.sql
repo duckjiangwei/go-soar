@@ -1,1 +1,0 @@
-select * from users;select * from users where name ='1' order by name desc;

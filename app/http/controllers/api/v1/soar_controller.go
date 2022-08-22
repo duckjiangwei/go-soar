@@ -1,6 +1,7 @@
 package v1
 
 import (
+	"go_web/app/requests"
 	"go_web/pkg/config"
 	"go_web/pkg/response"
 	"os"
@@ -39,9 +40,14 @@ func (ctrl *SoarController) File(c *gin.Context) {
 }
 
 func (ctrl *SoarController) Sql(c *gin.Context) {
+	//参数验证
+	request := requests.SoarRequest{}
+	if ok := requests.Validate(c, &request, requests.SoarSql); !ok {
+		return
+	}
 	rootPath, _ := os.Getwd()
 	//生成 sql 文件
-	sql := "select * from users;select * from users where name ='1' order by name desc;"
+	sql := request.Sql
 	sqlPath := rootPath + "/" + cast.ToString(config.Env("SOAR_SQL")) + "/" + "sql_" + cast.ToString(time.Now().Unix()) + ".sql"
 	os.WriteFile(sqlPath, []byte(string(sql)), 0644)
 	//生成结果文件
@@ -88,5 +94,8 @@ func AnalyzeAndSave(rootPath string, sqlPath string, soarResultPath string) erro
 	}
 	//结果保存
 	os.WriteFile(soarResultPath, []byte(string(out)), 0644)
+	//清理残余的临时库表
+	defer exec.Command(soarPath, "--cleanup-test-database")
+
 	return nil
 }

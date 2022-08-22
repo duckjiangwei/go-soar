@@ -83,5 +83,6 @@ __debug_bin
 node_modules/
 
 # soar 结果文件
-.soar/result
-.soar/sql
+soar/result/*
+soar/sql/*
+soar/soar.log

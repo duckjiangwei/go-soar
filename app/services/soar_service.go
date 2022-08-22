@@ -36,7 +36,7 @@ func GetSoarPath(rootPath string) string {
 	case "windows":
 		soarPath = rootPath + "/soar/soar.windows-amd64"
 	case "linux":
-		soarPath = rootPath + "/soar/soar.windows-amd64"
+		soarPath = rootPath + "/soar/soar.linux-amd64"
 	default:
 		//其他系统
 	}

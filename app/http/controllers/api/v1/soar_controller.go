@@ -19,15 +19,30 @@ type SoarController struct {
 
 func (ctrl *SoarController) File(c *gin.Context) {
 	rootPath, _ := os.Getwd()
-	//获取待分析的 sql 文件
-	sqlPath := rootPath + "/" + cast.ToString(config.Env("SOAR_SQL")) + "/test.sql"
-	//开始执行分析并保存结果
-	randFileName := cast.ToString(time.Now().Unix()) + ".html"
-	soarResultPath := rootPath + "/" + cast.ToString(config.Env("SOAR_RESULT")) + "/" + randFileName
-	err := AnalyzeAndSave(rootPath, sqlPath, soarResultPath)
+	//处理文件上传
+	file, errLoad := c.FormFile("file")
+	if errLoad != nil {
+		response.BadRequest(c, errLoad, "")
+	}
+	ret := make(map[string]string)
+	ret["file_name"] = cast.ToString(time.Now().Unix()) + "_" + file.Filename
+	ret["file_name_origin"] = file.Filename
+	sqlPath := rootPath + "/" + cast.ToString(config.Env("SOAR_SQL")) + ret["file_name"]
+
+	err := c.SaveUploadedFile(file, sqlPath)
 	if err != nil {
 		response.BadRequest(c, err, "")
 	}
+
+	//开始执行分析并保存结果
+	randFileName := cast.ToString(time.Now().Unix()) + ".html"
+	soarResultPath := rootPath + "/" + cast.ToString(config.Env("SOAR_RESULT")) + "/" + randFileName
+	// {
+	err1 := AnalyzeAndSave(rootPath, sqlPath, soarResultPath)
+	if err1 != nil {
+		response.BadRequest(c, err1, "")
+	}
+	// }
 
 	//ajax 返回
 	url := cast.ToString(config.Env("APP_URL")) + "/soar-result/" + randFileName

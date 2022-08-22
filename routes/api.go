@@ -16,6 +16,6 @@ func RegisterAPIRoutes(r *gin.Engine) {
 		soarGroup := v1.Group("/soar")
 		s := new(controllers.SoarController)
 		soarGroup.POST("/sql", s.Sql)
-		soarGroup.GET("/file", s.File)
+		soarGroup.POST("/file", s.File)
 	}
 }

@@ -1,1 +1,1 @@
-SELECT * FROM `users` ORDER BY name DESC;
+SELECT * FROM `users`  where name = 'sdfsdf' ORDER BY name DESC;

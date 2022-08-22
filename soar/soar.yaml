@@ -36,7 +36,7 @@ explain: true
 delimiter: ;
 # 日志级别，[0:Emergency, 1:Alert, 2:Critical, 3:Error, 4:Warning, 5:Notice, 6:Informational, 7:Debug]
 log-level: 7
-log-output: E:\soar\soar.log
+# log-output: E:\soar\soar.log
 # 优化建议输出格式
 report-type: html
 report-css: ""

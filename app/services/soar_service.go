@@ -52,7 +52,7 @@ func UploadFile(c *gin.Context, rootPath string) (string, error) {
 	ret := make(map[string]string)
 	ret["file_name"] = cast.ToString(time.Now().Unix()) + "_" + file.Filename
 	ret["file_name_origin"] = file.Filename
-	sqlPath := rootPath + "/" + cast.ToString(config.Env("SOAR_SQL")) + ret["file_name"]
+	sqlPath := rootPath + "/" + cast.ToString(config.Env("SOAR_SQL")) + "/" + ret["file_name"]
 
 	err := c.SaveUploadedFile(file, sqlPath)
 	if err != nil {

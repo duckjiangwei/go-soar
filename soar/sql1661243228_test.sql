@@ -1,1 +1,0 @@
-SELECT * FROM live_order WHERE user_id =11963232 ORDER BY order_number DESC

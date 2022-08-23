@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>GO-SOAR</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' href='/resources/css/bootstrap.min.css'>
+  <!-- <script src='/resources/js/bootstrap.min.js'></script> -->
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+  </script>
+</head>
+<body>
+  <ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="/">SQL</a></li>
+    <li role="presentation"><a href="file">文件</a></li>
+  </ul>
+  <div>
+    <form>
+    <label for="inputHelpBlock">请输入sql语句：</label>
+    <textarea class="form-control" rows="3"></textarea>
+    <span id="helpBlock" class="help-block">注意：支持多条sql提交，用 ; 隔开</span>
+    <button type="submit" class="btn btn-default">提交</button>
+  </form>
+  </div>
+</body>
+</html>
+
+<script>
+
+  $(function(){
+      // 给登录按钮增加事件监听
+      $('#btn btn-default').click(function(){
+          alert('你点击了登录按钮');
+
+          // 1 获取表单的数据【一般会在javascript中进行验证】
+
+          // 2 使用ajax方法进行提交
+
+          // 3 根据服务器的返回值进行操作（具体局部刷新操作）
+
+
+
+          // 1.挨个获取
+
+          var _name = $('input[name="name"]').val();
+
+          var _password = $('input[name="password"]').val();
+
+
+
+          // 2.使用jq的serialize()
+
+          // alert($('.login').serialize());
+
+          //alert(_password);
+
+
+
+          //todo::前端js数据验证
+
+
+
+//           $.ajax({
+
+//               type : 'POST' ,
+
+//               url : "{:url('checkLoginData')}",
+
+//               data : $('.login').serialize(),
+
+//               dataType: 'json',
+
+//               success : function(data)
+
+//               {
+
+// //                    console.log(data);
+
+//                   if(data.status == 0)
+
+//                   {
+
+//                       $('.error-tips').text(data.msg).show();
+
+//                   }
+
+//                   else
+
+//                   {
+
+//                       $('.success-tips').text(data.msg).show();
+
+//                       setTimeout(function(){
+
+//                           window.location.href = "{:url('index')}";
+
+//                       },2000);
+
+//                   }
+
+//               }
+
+//           })
+
+
+
+      })
+
+  })
+
+</script>

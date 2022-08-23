@@ -17,13 +17,19 @@ type SoarController struct {
 }
 
 func (ctrl *SoarController) File(c *gin.Context) {
+	//参数验证
+	errs := requests.SoarFile(c.Request)
+	if len(errs) > 0 {
+		response.Data(c, 200, errs)
+		return
+	}
 	rootPath, _ := os.Getwd()
 	//处理文件上传
 	sqlPath, errLoad := services.UploadFile(c, rootPath)
 	if errLoad != nil {
 		response.BadRequest(c, errLoad, "")
+		return
 	}
-
 	//开始执行分析并保存结果
 	randFileName := cast.ToString(time.Now().Unix()) + ".html"
 	soarResultPath := rootPath + "/" + cast.ToString(config.Env("SOAR_RESULT")) + "/" + randFileName
@@ -31,6 +37,7 @@ func (ctrl *SoarController) File(c *gin.Context) {
 	errAnalyze := services.AnalyzeAndSave(rootPath, sqlPath, soarResultPath)
 	if errAnalyze != nil {
 		response.BadRequest(c, errAnalyze, "")
+		return
 	}
 
 	//ajax 返回
@@ -45,7 +52,7 @@ func (ctrl *SoarController) File(c *gin.Context) {
 
 func (ctrl *SoarController) Sql(c *gin.Context) {
 	//参数验证
-	request := requests.SoarRequest{}
+	request := requests.SoarSqlRequest{}
 	if ok := requests.Validate(c, &request, requests.SoarSql); !ok {
 		return
 	}
@@ -61,6 +68,7 @@ func (ctrl *SoarController) Sql(c *gin.Context) {
 	err := services.AnalyzeAndSave(rootPath, sqlPath, soarResultPath)
 	if err != nil {
 		response.BadRequest(c, err, "")
+		return
 	}
 
 	//ajax 返回

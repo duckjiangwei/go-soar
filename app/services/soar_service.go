@@ -45,7 +45,7 @@ func GetSoarPath(rootPath string) string {
 
 //处理文件上传
 func UploadFile(c *gin.Context, rootPath string) (string, error) {
-	file, errLoad := c.FormFile("file")
+	file, errLoad := c.FormFile("sql_file")
 	if errLoad != nil {
 		return "", errLoad
 	}

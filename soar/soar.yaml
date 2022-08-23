@@ -6,7 +6,7 @@ test-dsn:
   password: 'jw@365039'
   net: tcp
   addr: 175.178.27.35:3306
-  schema: "goblog"
+  schema: "edu_center"
   charset: utf8
   collation: utf8_general_ci
   loc: UTC

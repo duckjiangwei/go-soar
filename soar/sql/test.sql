@@ -1,1 +1,0 @@
-SELECT * FROM `users`  where name = 'sdfsdf' ORDER BY name DESC;

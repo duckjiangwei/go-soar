@@ -2,11 +2,14 @@
 一个基于 XiaoMi/soar 的 sql 优化工具，能批量给出优化建议
 
 # 部署
-//TODO
-
-4. 执行
+1. 拉代码
+2. build 镜像
+```bash
+docker build -t go-soar:v1 .
 ```
-./main
+2. 起容器
+```bash
+docker run --name go-soar  -d  -p 3000:3000 go-soar:v1
 ```
 # 配置
 1. 新增环境变量文件

@@ -1,9 +1,17 @@
 # go-soar 介绍
 一个基于 XiaoMi/soar 的 sql 优化工具，能批量给出优化建议
 
-# 部署
+# 配置
 1. 拉代码
-2. build 镜像
+2. 新增环境变量文件，并配置
+```
+cp .env.exam .env
+```
+3. 配置 mysql 连接和 soar 规则(重点)
+修改 soar 下的 soar.yaml 文件
+
+# 部署
+1. build 镜像
 ```bash
 docker build -t go-soar:v1 .
 ```
@@ -11,13 +19,6 @@ docker build -t go-soar:v1 .
 ```bash
 docker run --name go-soar  -d  -p 3000:3000 go-soar:v1
 ```
-# 配置
-1. 新增环境变量文件
-```
-cp .env.exam .env
-```
-2. 配置 mysql 连接和 soar 规则
-修改 soar 下的 soar.yaml 文件
 
 # 使用
 1. 获取单条 sql 优化建议

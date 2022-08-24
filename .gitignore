@@ -82,7 +82,7 @@ __debug_bin
 .sass-cache/*
 node_modules/
 
-# soar 结果文件
+# soar 文件
 soar/result/*
 soar/sql/*
 soar/soar.log

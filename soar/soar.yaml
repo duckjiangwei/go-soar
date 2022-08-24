@@ -3,9 +3,9 @@
 # 测试环境配置
 test-dsn:
   user: "root"
-  password: 'jw@365039'
+  password: 'j365039'
   net: tcp
-  addr: 175.178.27.35:3306
+  addr: 175.188.21.35:3306
   schema: "edu_center"
   charset: utf8
   collation: utf8_general_ci

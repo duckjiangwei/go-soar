@@ -28,7 +28,6 @@
 <script>
 
 $(document).ready(function(){
-      $('[data-toggle="popover"]').popover()
       $("button").click(function(){
         var _sql = $('textarea[name="sql"]').val();
         $.post("/v1/soar/sql",

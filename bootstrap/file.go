@@ -14,6 +14,4 @@ func SetupFile(router *gin.Engine) {
 	router.Static("/soar-sql", rootPath+"/"+cast.ToString(config.Env("SOAR_SQL")))
 	//分析结果
 	router.Static("/soar-result", rootPath+"/"+cast.ToString(config.Env("SOAR_RESULT")))
-	//静态文件
-	router.Static("/resources", rootPath+"/"+cast.ToString(config.Env("RESOURCES")))
 }

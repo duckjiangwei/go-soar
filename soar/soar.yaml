@@ -3,9 +3,9 @@
 # 测试环境配置
 test-dsn:
   user: "root"
-  password: 'j365039'
+  password: 'jw@365039'
   net: tcp
-  addr: 175.188.21.35:3306
+  addr: 175.178.27.35:3306
   schema: "edu_center"
   charset: utf8
   collation: utf8_general_ci
@@ -30,7 +30,7 @@ only-syntax-check: false
 sampling-statistic-target: 100
 sampling: false
 sampling-condition: ""
-profiling: true
+profiling: false
 trace: false
 explain: true
 delimiter: ;
@@ -74,8 +74,8 @@ allow-charsets:
 allow-collates: []
 allow-engines:
 - innodb
-max-index-count: 2
-max-column-count: 5
+max-index-count: 5
+max-column-count: 30
 max-value-count: 100
 index-prefix: idx_
 unique-key-prefix: uk_

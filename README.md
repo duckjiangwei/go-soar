@@ -23,11 +23,11 @@ docker run --name go-soar  -d  -p 3000:3000 go-soar:v1
 # 使用
 1. 获取单条 sql 优化建议
 ```bash
- curl -X POST localhost:3000/v1/soar/sql  -H 'Content-Type:multipart/form-data' -F 'sql=SELECT * FROM live_order WHERE user_id =11963232 ORDER BY order_number DESC'
+ curl -X POST localhost:3000/v1/soar/single  -H 'Content-Type:multipart/form-data' -F 'sql=SELECT * FROM live_order WHERE user_id =11963232 ORDER BY order_number DESC'
 ```
 2. 批量获取优化建议:上传需要分析的.sql 文件
 ```bash
-curl -X POST localhost:3000/v1/soar/file  -H 'Content-Type:multipart/form-data' -F "sql_file=@E:\test.sql"
+curl -X POST localhost:3000/v1/soar/batch  -H 'Content-Type:multipart/form-data' -F "sql_file=@E:\test.sql"
 ```
 
 **返回的地址即为优化建议文件存放的地址。**

@@ -16,7 +16,7 @@ type SoarController struct {
 	BaseAPIController
 }
 
-func (ctrl *SoarController) File(c *gin.Context) {
+func (ctrl *SoarController) Batch(c *gin.Context) {
 	//参数验证
 	errs := requests.SoarFile(c.Request)
 	if len(errs) > 0 {
@@ -50,7 +50,7 @@ func (ctrl *SoarController) File(c *gin.Context) {
 	})
 }
 
-func (ctrl *SoarController) Sql(c *gin.Context) {
+func (ctrl *SoarController) Single(c *gin.Context) {
 	//参数验证
 	request := requests.SoarSqlRequest{}
 	if ok := requests.Validate(c, &request, requests.SoarSql); !ok {

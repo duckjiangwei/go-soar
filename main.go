@@ -16,7 +16,6 @@ func init() {
 }
 
 func main() {
-
 	// 配置初始化，依赖命令行 --env 参数.默认加载 .env 文件
 	var env string
 	flag.StringVar(&env, "env", "", "加载 .env 文件，如 --env=testing 加载的是 .env.testing 文件")
@@ -29,14 +28,8 @@ func main() {
 	// 设置 gin 的运行模式，支持 debug, release, test
 	gin.SetMode(gin.ReleaseMode)
 
-	// 初始化 DB
-	// bootstrap.SetupDB()
-
 	// new 一个 Gin Engine 实例
 	router := gin.New()
-
-	// 初始化 Redis
-	bootstrap.SetupRedis()
 
 	// 初始化路由绑定
 	bootstrap.SetupRoute(router)

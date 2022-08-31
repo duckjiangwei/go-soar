@@ -61,7 +61,7 @@ max-group-by-cols-count: 2
 max-distinct-count: 2
 max-index-cols-count: 1
 max-text-cols-count: 2
-max-total-rows: 9999999
+max-total-rows: 999999
 max-query-cost: 9999
 spaghetti-query-length: 2048
 allow-drop-index: false
@@ -93,7 +93,7 @@ explain-warn-select-type:
 - SIMPLE
 explain-warn-access-type:
 - ALL
-explain-max-keys: 3
+explain-max-keys: 5
 explain-min-keys: 0
 explain-max-rows: 10000
 explain-warn-extra:

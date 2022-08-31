@@ -56,15 +56,15 @@ rewrite-rules:
 - insertcolumns
 - distinctstar
 blacklist: ""
-max-join-table-count: 1
+max-join-table-count: 3
 max-group-by-cols-count: 2
 max-distinct-count: 2
-max-index-cols-count: 1
+max-index-cols-count: 5
 max-text-cols-count: 2
-max-total-rows: 999999
+max-total-rows: 9999999
 max-query-cost: 9999
 spaghetti-query-length: 2048
-allow-drop-index: false
+allow-drop-index: true
 max-in-count: 10
 max-index-bytes-percolumn: 767
 max-index-bytes: 3072
@@ -89,8 +89,7 @@ explain-sql-report-type: pretty
 explain-type: extended
 explain-format: traditional
 explain-warn-select-type:
-- ALL
-- SIMPLE
+- ""
 explain-warn-access-type:
 - ALL
 explain-max-keys: 5
@@ -99,7 +98,7 @@ explain-max-rows: 10000
 explain-warn-extra:
 - Using temporary
 - Using filesort
-explain-max-filtered: 100
+  : 100
 explain-warn-scalability:
 - O(n)
 show-warnings: false

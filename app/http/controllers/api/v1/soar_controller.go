@@ -17,6 +17,9 @@ type SoarController struct {
 }
 
 func (ctrl *SoarController) Batch(c *gin.Context) {
+	//获取参数
+	request := requests.SoarSqlRequest{}
+	c.Bind(&request)
 	//参数验证
 	errs := requests.SoarFile(c.Request)
 	if len(errs) > 0 {
@@ -34,7 +37,7 @@ func (ctrl *SoarController) Batch(c *gin.Context) {
 	randFileName := cast.ToString(time.Now().Unix()) + ".html"
 	soarResultPath := rootPath + "/" + cast.ToString(config.Env("SOAR_RESULT")) + "/" + randFileName
 
-	errAnalyze := services.AnalyzeAndSave(rootPath, sqlPath, soarResultPath)
+	errAnalyze := services.AnalyzeAndSave(request, rootPath, sqlPath, soarResultPath)
 	if errAnalyze != nil {
 		response.BadRequest(c, errAnalyze, "")
 		return
@@ -65,7 +68,7 @@ func (ctrl *SoarController) Single(c *gin.Context) {
 	randFileName := cast.ToString(time.Now().Unix()) + ".html"
 	soarResultPath := rootPath + "/" + cast.ToString(config.Env("SOAR_RESULT")) + "/" + randFileName
 	//执行分析并保存结果
-	err := services.AnalyzeAndSave(rootPath, sqlPath, soarResultPath)
+	err := services.AnalyzeAndSave(request, rootPath, sqlPath, soarResultPath)
 	if err != nil {
 		response.BadRequest(c, err, "")
 		return

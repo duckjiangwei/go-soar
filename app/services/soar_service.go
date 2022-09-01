@@ -1,6 +1,8 @@
 package services
 
 import (
+	"fmt"
+	"go_web/app/requests"
 	"go_web/pkg/config"
 	"os"
 	"os/exec"
@@ -12,11 +14,13 @@ import (
 )
 
 //使用 soar 分析并保存结果
-func AnalyzeAndSave(rootPath string, sqlPath string, soarResultPath string) error {
+func AnalyzeAndSave(request requests.SoarSqlRequest, rootPath string, sqlPath string, soarResultPath string) error {
 	//获取执行文件的路径
 	soarPath := GetSoarPath(rootPath)
+	//拼装dns信息
+	dns := GetDnsInfo(request)
 	//开始执行分析
-	cmd := exec.Command(soarPath, "-query", sqlPath)
+	cmd := exec.Command(soarPath, "-test-dsn", dns, "-query", sqlPath)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return err
@@ -59,4 +63,34 @@ func UploadFile(c *gin.Context, rootPath string) (string, error) {
 		return "", err
 	}
 	return sqlPath, nil
+}
+
+//获取dns信息
+func GetDnsInfo(request requests.SoarSqlRequest) string {
+	//取默认dns信息
+	username := cast.ToString(config.Env("DB_USERNAME"))
+	password := cast.ToString(config.Env("DB_PASSWORD"))
+	host := cast.ToString(config.Env("DB_HOST"))
+	port := cast.ToString(config.Env("DB_PORT"))
+	db := cast.ToString(config.Env("DB_DATABASE"))
+	//覆盖默认dns信息
+	if request.Username != "" {
+		username = request.Username
+	}
+	if request.Password != "" {
+		password = request.Password
+	}
+	if request.Host != "" {
+		host = request.Host
+	}
+	if request.Port != "" {
+		port = request.Port
+	}
+
+	if request.Db != "" {
+		db = request.Db
+	}
+	dns := username + ":" + password + "@" + host + ":" + port + "/" + db
+	fmt.Println(dns)
+	return dns
 }

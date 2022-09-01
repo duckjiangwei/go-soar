@@ -31,3 +31,15 @@ curl -X POST localhost:3000/v1/soar/batch  -H 'Content-Type:multipart/form-data'
 ```
 
 **返回的地址即为优化建议文件存放的地址。**
+
+# 其他参数
+不传使用 .env 的默认配置， 可动态配置 dsn 信息:
+|  参数   | 示例值  |
+|  ----  | ----  |
+| host  | 地址 |
+| db  | 库名 |
+| port  | 端口 |
+| username  | 账号 |
+| password  | 密码 |
+
+

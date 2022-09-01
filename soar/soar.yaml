@@ -98,7 +98,7 @@ explain-max-rows: 10000
 explain-warn-extra:
 - Using temporary
 - Using filesort
-  : 100
+explain-max-filtered: 100
 explain-warn-scalability:
 - O(n)
 show-warnings: false

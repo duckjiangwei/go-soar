@@ -44,7 +44,7 @@ func SoarSql(data interface{}, c *gin.Context) map[string][]string {
 func SoarFile(r *http.Request) map[string][]string {
 	// 自定义验证规则
 	rules := govalidator.MapData{
-		"file:sql_file": []string{"required", "ext:sql", "size:10000"},
+		"file:sql_file": []string{"required", "ext:sql", "size:10000000"},
 		"host":          []string{"ip"},
 	}
 

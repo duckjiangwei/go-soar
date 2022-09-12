@@ -16,6 +16,24 @@ type SoarController struct {
 	BaseAPIController
 }
 
+//获取启发规则
+func (ctrl *SoarController) RuleList(c *gin.Context) {
+	ruleName := "rule.md"
+	err := services.GetRuleList(ruleName)
+	if err != nil {
+		response.BadRequest(c, err, "")
+		return
+	}
+	//ajax 返回
+	url := cast.ToString(config.Env("APP_URL")) + "/soar-result/" + ruleName
+	data := map[string]string{
+		"url": url,
+	}
+	response.Data(c, 200, gin.H{
+		"data": data,
+	})
+}
+
 func (ctrl *SoarController) Batch(c *gin.Context) {
 	//获取参数
 	request := requests.SoarSqlRequest{}

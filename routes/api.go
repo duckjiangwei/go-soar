@@ -14,6 +14,8 @@ func RegisterAPIRoutes(r *gin.Engine) {
 	{
 		soarGroup := v1.Group("/soar")
 		s := new(controllers.SoarController)
+		//获取启发规则
+		soarGroup.GET("/rule", s.RuleList)
 		//单条sql优化
 		soarGroup.POST("/single", s.Single)
 		//批量优化

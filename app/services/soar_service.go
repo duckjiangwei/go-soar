@@ -95,3 +95,21 @@ func GetDnsInfo(request requests.SoarSqlRequest) string {
 	fmt.Println(dns)
 	return dns
 }
+
+//获取启发规则列表
+func GetRuleList(ruleName string) error {
+	//获取执行文件的路径
+	rootPath, _ := os.Getwd()
+	soarPath := GetSoarPath(rootPath)
+	//开始执行分析
+	cmd := exec.Command(soarPath, "-list-heuristic-rules")
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		return err
+	}
+	// //规则文件
+	rulePath := rootPath + "/" + cast.ToString(config.Env("SOAR_RESULT")) + "/" + ruleName
+	// //结果保存
+	os.WriteFile(rulePath, []byte(string(out)), 0644)
+	return nil
+}
